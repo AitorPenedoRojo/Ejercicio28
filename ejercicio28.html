@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="miCanvas" style="border:1px  solid blue"></canvas>
+    <script>
+        class Circulo {
+            constructor(x, y, r, color) {
+                this.x = x;
+                this.y = y;
+                this.r = r;
+                this.color = color;
+            }
+        }
+        var listaCirculos = [];
+
+        function dibujarCirculo(c) {
+            ctx.beginPath();
+            ctx.arc(c.x, c.y, c.r, 0, 2 * Math.PI);
+            ctx.closePath();
+            ctx.fillStyle = c.color
+            ctx.fill()
+            
+        }
+
+        function contarCirculos(color) {
+            var contador = 0;
+            for (i in listaCirculos) {
+                if (listaCirculos[i].color === color) {
+                    contador++;
+                }
+            }
+            return contador;
+        }
+
